@@ -1,2 +1,9 @@
 language: node_js
 node_js: node
+deploy:
+  provider: heroku
+  api_key:
+    secure: b9y7mY9UU/R41Ho0zFT7Iqrb5QcvKOAovpEXItudsMYuIEVCk42dDRt07JZ8BtQbWgL0IuiKk9eYM5vHLYbIkrxg5RXL13BKQSMCRndkFBHTUv5rQwM9WaLMWAyh2L10GL1mt0+QXJyoyI7j4iz/lGPIj48mSqfoUWGq+VpDma+jeV2QWgRgKi+/2b3gBt0fScCHzXodrwZXwnZRXJ7zPgUAlqRTxmuBoQCmnwuLpYnp0kX/z92eGbWNqH1IczO6GupKB4uZUfYw3w8E1n15yEBaZTmZzvuHlUAKMtYnOEsF4mg6pSuvHepY3NtenmZvPyCrP/J1cKb/UqHCE0NMmIHYhiu309GwPq4zMlYRlFF80euZpqGbad1bDiWxgnvG33MKUHTKWjSHbbpHBT386yZeD/EaRycX1suGDNwmpU8o+H3sud03AE0p5wH/6Eg+YQK273p4/nO2iDUe4fQb3+lVESByF3SkA92tLV4ZjxIO8o037/ICi7yj3xXK1WvrT/1mp0lVUkYGL+ZTwU/B3FumufANFgVanzeVps2bM2s+SzwZUN3Goc/EqVRDhgR0psfIRG/eVlFQ80bp5FRJs6PEm6N14wY7xaOLIlRFwkZE1SRG66mKcp8FCc6tgHGItyZvxxdFLg7Dwiy024kcDOvh0XOCrE//J9kD2Z8NMfY=
+  app: blooming-savannah-68104
+  on:
+    repo: AaronWFreeman/fullstack-blog-app

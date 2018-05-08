@@ -1,8 +1,17 @@
+'use-strict';
+
 const express = require('express');
+const morgan = require('morgan');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+
+mongoose.Promise = global.Promise;
+
 const app = express();
 
+app.use(morgan('common'));
+app.use(bodyParser.json());
 app.use(express.static('public'));
-// app.listen(process.env.PORT || 8080);
 
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
@@ -20,7 +29,8 @@ app.use('*', (req, res) => {
 
 app.get('/', function (req, res) {
   res.status(200);
-  res.sendFile(__dirname + '/index.html');
+  res.sendFile(__dirname + '/index.html')
+  .catch(err => res.status(500).json({ error: 'something went terribly wrong' }));
 });
 
 let server;

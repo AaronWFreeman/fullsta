@@ -12,9 +12,9 @@
     "url": "git+https://github.com/AaronWFreeman/fullstack-blog-app.git"
   },
   "keywords": [
-  "node",
-  "hyperdev",
-  "express"
+    "node",
+    "hyperdev",
+    "express"
   ],
   "author": "",
   "license": "ISC",
@@ -26,7 +26,9 @@
     "chai": "^4.1.2",
     "chai-http": "^4.0.0",
     "express": "^4.16.3",
-    "mocha": "^5.1.1"
+    "mocha": "^5.1.1",
+    "mongoose": "^5.0.17",
+    "morgan": "^1.9.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
