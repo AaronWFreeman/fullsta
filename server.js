@@ -5,8 +5,9 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
-mongoose.Promise = global.Promise;
-
+// mongoose.Promise = global.Promise;
+const {DATABASE_URL, PORT} = require('./config');
+const {blogPost} = require('./models');
 const app = express();
 
 app.use(morgan('common'));
@@ -32,6 +33,10 @@ app.get('/', function (req, res) {
   res.sendFile(__dirname + '/index.html')
   .catch(err => res.status(500).json({ error: 'something went terribly wrong' }));
 });
+
+app.get('/users', function(req, res) {
+  
+})
 
 let server;
 
