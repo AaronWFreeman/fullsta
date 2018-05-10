@@ -5,7 +5,9 @@ const bodyParser = require('body-parser');
 const {blogPost} = require('./models');
 const jsonParser = bodyParser.json();
 
-app.post('/posts', (req, res) => {
+const router = express.Router();
+
+router.post('/posts', (req, res) => {
 
   const requiredFields = ['author', 'created', 'id', 'title', 'content'];
   for (let i = 0; i < requiredFields.length; i++) {
@@ -31,3 +33,5 @@ app.post('/posts', (req, res) => {
       res.status(500).json({ message: 'Internal server error' });
     });
 });
+
+module.exports = {router};

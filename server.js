@@ -8,7 +8,8 @@ const bodyParser = require('body-parser');
 mongoose.Promise = global.Promise;
 
 const {DATABASE_URL, PORT} = require('./config');
-const {blogPost} = require('./models');
+const { router: blogPostsRouter } = require('./blogPosts');
+
 const app = express();
 
 app.use(morgan('common'));
@@ -29,15 +30,17 @@ app.use('*', (req, res) => {
   return res.status(404).json({ message: 'Not Found' });
 });
 
+app.use('/api/blogposts/', blogPostsRouter);
+
 app.get('/', function (req, res) {
   res.status(200);
   res.sendFile(__dirname + '/index.html')
   .catch(err => res.status(500).json({ error: 'something went terribly wrong' }));
 });
 
-app.get('/users', function(req, res) {
+// app.get('/users', function(req, res) {
 
-})
+// })
 
 let server;
 
@@ -76,7 +79,7 @@ function closeServer() {
 
 
 if (require.main === module) {
-  runServer().catch(err => console.error(err));
+  runServer(DATABASE_URL).catch(err => console.error(err));
 };
 
 module.exports = {app, runServer, closeServer};
