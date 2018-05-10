@@ -16,17 +16,17 @@ const blogPostSchema = new mongoose.Schema({
   created_by: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
   created: {type: Date, default: Date.now}
 });
-
-blogPostSchema.methods.serialize = function() {
-  return {
-    title: this.title,
-    content: this.content,
-    topic: this.topic,
-    id: this._id.
-    created_by: this.created_by,
-    created: this.created
-    };
-  }
+//
+// blogPostSchema.methods.serialize = function() {
+//   return {
+//     title: this.title,
+//     content: this.content,
+//     topic: this.topic,
+//     id: this._id.
+//     created_by: this.created_by,
+//     created: this.created
+//     };
+//   }
 
 const blogPost = mongoose.model('blogPost', blogPostSchema);
 

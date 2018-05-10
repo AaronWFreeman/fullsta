@@ -5,7 +5,8 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
-// mongoose.Promise = global.Promise;
+mongoose.Promise = global.Promise;
+
 const {DATABASE_URL, PORT} = require('./config');
 const {blogPost} = require('./models');
 const app = express();
@@ -35,13 +36,13 @@ app.get('/', function (req, res) {
 });
 
 app.get('/users', function(req, res) {
-  
+
 })
 
 let server;
 
-function runServer() {
-  const port = process.env.PORT || 8080;
+function runServer(databaseUrl, port = PORT) {
+  // const port = process.env.PORT || 8080;
   return new Promise((resolve, reject) => {
     server = app.listen(port, () => {
       console.log(`Your app is listening on port ${port}`);
