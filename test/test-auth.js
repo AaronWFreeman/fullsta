@@ -1,7 +1,7 @@
 'use strict';
 global.DATABASE_URL = 'mongodb://Tlonist:Chewbacca1@ds119820.mlab.com:19820/test-fullstack-db';
 const chai = require('chai');
-const chaiHttp = require('chaiHttp');
+const chaiHttp = require('chai-http');
 const jwt = require('jsonwebtoken');
 
 const {app, runServer, closeServer} = require('../server');
@@ -100,7 +100,7 @@ describe('Auth endpoints', function() {
           expect(res).to.have.status(200);
           expect(res.body).to.be.an('object');
           const token = res.body.authToken;
-          expect(token).to.be.a.('string');
+          expect(token).to.be.a('string');
           const payload = jwt.verify(token, JWT_SECRET, {
             algorithm: ['HS256']
           });

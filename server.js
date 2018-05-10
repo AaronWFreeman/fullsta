@@ -26,10 +26,6 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.use('*', (req, res) => {
-  return res.status(404).json({ message: 'Not Found' });
-});
-
 app.use('/api/blogposts/', blogPostsRouter);
 
 app.get('/', function (req, res) {
@@ -37,6 +33,11 @@ app.get('/', function (req, res) {
   res.sendFile(__dirname + '/index.html')
   .catch(err => res.status(500).json({ error: 'something went terribly wrong' }));
 });
+
+app.use('*', (req, res) => {
+  return res.status(404).json({ message: 'Not Found' });
+});
+
 
 // app.get('/users', function(req, res) {
 
