@@ -12,6 +12,8 @@ const {TEST_DATABASE_URL} = require('../config');
 
 chai.use(chaiHttp);
 
+let postId;
+
 function seedBlogPostData() {
   console.info('seeding blog-post data');
   const seedData = [];
@@ -24,7 +26,12 @@ function seedBlogPostData() {
     });
     // console.log(seedData);
   }
-  return BlogPost.insertMany(seedData);
+  // seedData[0]._id = '5af3eb90e464b30f91f74ca3';
+  return BlogPost.insertMany(seedData)
+  .then(res => {
+    postId = res[0]._id;
+    console.log(postId);
+  })
 }
 
 function generateBlogPostData() {
@@ -72,7 +79,7 @@ describe('Blog App', function() {
   describe('GET endpoint', function() {
     it('should show blog-post on GET', function() {
       return chai.request(app)
-        .get('/api/blogposts/5af3eb90e464b30f91f74ca3')
+        .get(`/api/blogposts/${postId}`)
         .then(function(res) {
           expect(res).to.have.status(200);
           expect(res).to.be.json;
@@ -82,15 +89,15 @@ describe('Blog App', function() {
   describe('PUT endpoint', function() {
     it('should update blog-post on PUT', function() {
       return chai.request(app)
-        .get('/api/blogposts/:id')
+        .get(`/api/blogposts/${postId}`)
         .then(function(res) {
-          console.log(res, 'response!!')
-          const updatedPost = Object.assign(res.body[0], {
+          console.log(res.body, 'response!!')
+          const updatedPost = Object.assign(res.body, {
             title: 'cldms',
             content: 'slkmvdklw'
           });
           return chai.request(app)
-            .put(`api/blogposts/5af3eb90e464b30f91f74ca3`)
+            .put(`/api/blogposts/${postId}`)
             .send(updatedPost)
             .then(function(res) {
               expect(res).to.have.status(200);
@@ -98,17 +105,17 @@ describe('Blog App', function() {
           });
       });
     });
-  // describe('DELETE endpoint', function() {
-  //   it('should delete blog-post on DELETE', function() {
-  //     return chai.request(app)
-  //       .get('/api/blogPosts/5af3eb90e464b30f91f74ca3')
-  //       .then(function(res) {
-  //         return chai.request(app)
-  //           .delete(`/${res.body[0].id}`);
-  //       })
-  //       .then(function(res) {
-  //         expect(res).to.have.status(204);
-  //         });
-  //     });
-  //   });
+  describe('DELETE endpoint', function() {
+    it('should delete blog-post on DELETE', function() {
+      return chai.request(app)
+        .get(`/api/blogPosts/${postId}`)
+        .then(function(res) {
+          return chai.request(app)
+            .delete(`/${res.body.id}`);
+        })
+        .then(function(res) {
+          expect(res).to.have.status(204);
+          });
+      });
+    });
 });
