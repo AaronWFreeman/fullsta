@@ -91,7 +91,7 @@ describe('Blog App', function() {
       return chai.request(app)
         .get(`/api/blogposts/${postId}`)
         .then(function(res) {
-          console.log(res.body, 'response!!')
+          // console.log(res.body, 'response!!')
           const updatedPost = Object.assign(res.body, {
             title: 'cldms',
             content: 'slkmvdklw'
@@ -111,7 +111,7 @@ describe('Blog App', function() {
         .get(`/api/blogPosts/${postId}`)
         .then(function(res) {
           return chai.request(app)
-            .delete(`/${res.body.id}`);
+            .delete(`/api/blogPosts/${postId}`);
         })
         .then(function(res) {
           expect(res).to.have.status(204);
