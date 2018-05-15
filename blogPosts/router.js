@@ -8,16 +8,21 @@ const jsonParser = bodyParser.json();
 const router = express.Router();
 
 router.post('/', (req, res) => {
-    // res.send("hi there");
+  const requiredFields = ['title', 'content'];
+  for (let i = 0; i < requiredFields.length; i++) {
+  const field = requiredFields[i];
+  if (!(field in req.body)) {
+    const message = `Missing \`${field}\` in request body`;
+    console.error(message);
+    return res.status(400).send(message);
+    }
+  }
   console.log(req.body);
   BlogPost
     .create({
       title: req.body.title,
       content: req.body.content,
       topic: req.body.topic
-      // author: req.body.author,
-      // created: req.body.created,
-      // id: req.body.id
     })
     .then(blogpost => res.status(200).json(blogpost))
     .catch(err => {
