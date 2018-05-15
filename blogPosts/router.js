@@ -8,6 +8,7 @@ const jsonParser = bodyParser.json();
 const router = express.Router();
 
 router.post('/', (req, res) => {
+  console.log(req.body);
   const requiredFields = ['title', 'content'];
   for (let i = 0; i < requiredFields.length; i++) {
   const field = requiredFields[i];
@@ -36,6 +37,15 @@ router.get('/:id', (req, res) => {
     .findById(req.params.id)
     .then(blogpost => {
       res.status(200).json(blogpost);
+    })
+    .catch(err => res.status(500).json({ message: 'Internal server error'}));
+} )
+
+router.get('/', (req, res) => {
+  BlogPost
+    .find({}).limit(10)
+    .then(blogposts => {
+      res.status(200).json(blogposts);
     })
     .catch(err => res.status(500).json({ message: 'Internal server error'}));
 } )
