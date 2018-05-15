@@ -1,5 +1,4 @@
 const url = 'http://localhost:8080/api/blogposts/';
-// const getApiUrl = 'http://localhost:8080/api/blogposts/';
 let STORE = [];
 
 function postDataToApi(callback) {
@@ -16,15 +15,6 @@ function postDataToApi(callback) {
   headers: {'Content-Type':'application/json'}
   });
 }
-//
-// function getDataFromApi(callback) {
-//   $.ajax({
-//   type: "GET",
-//   url: url,
-//   success: callback,
-//   headers: {'Content-Type':'application/json'}
-//   });
-// }
 
 function getBlogPosts(callback) {
   $.ajax({
@@ -35,6 +25,29 @@ function getBlogPosts(callback) {
   });
 }
 
+function updateBlogPosts(callback) {
+  $.ajax({
+    type: "PUT",
+    url: url,
+    success: callback,
+    headers: {'Content-Type':'application/json'}
+  });
+}
+
+function updateBlogPosts(callback) {
+  let updatedContent = {
+    "title": "Whales That Read",
+    "content": "Is there really content?",
+    "topic": "Marine Literacy"
+  };
+  $.ajax({
+    type: "DELETE",
+    url: url,
+    data: JSON.stringify(updatedContent),
+    success: callback,
+    headers: {'Content-Type':'application/json'}
+  });
+}
 
 function storeBlogPostData(data) {
   // STORE.push(data);
@@ -52,11 +65,22 @@ function renderBlogPosts() {
   for (let i = 0; i < STORE.length; i++) {
     let title = STORE[i].title;
     let id = STORE[i]._id;
-    let liTag = `<li id=${id}>${title}</li><button>delete</button>`
+    let liTag = `<li id=${id}>${title}</li>
+                 <button class="deletePost">Delete</button>
+                 <button class='updatePost'>Update</button>`
     $('.blogObj').append(liTag);
   }
   console.log(STORE);
 }
+
+function watchUpdateClick() {
+  $('.updatePost').on('click', function(event) {
+    event.preventDefault();
+    updateBlogPosts(storeBlogPostData);
+    console.log("this button works");
+  })
+}
+
 
 // function findOutIfItWorks() {
 //   console.log('hey buddy');
