@@ -25,9 +25,9 @@ function getBlogPosts(callback) {
   });
 }
 
-function updateBlogPosts(callback) {
+function deleteBlogPosts(callback) {
   $.ajax({
-    type: "PUT",
+    type: "DELETE",
     url: url,
     success: callback,
     headers: {'Content-Type':'application/json'}
@@ -41,7 +41,7 @@ function updateBlogPosts(callback) {
     "topic": "Marine Literacy"
   };
   $.ajax({
-    type: "DELETE",
+    type: "PUT",
     url: url,
     data: JSON.stringify(updatedContent),
     success: callback,
@@ -71,6 +71,7 @@ function renderBlogPosts() {
     $('.blogObj').append(liTag);
   }
   console.log(STORE);
+  watchUpdateClick();
 }
 
 function watchUpdateClick() {
