@@ -1,56 +1,48 @@
 const url = 'http://localhost:8080/api/blogposts/';
 let STORE = [];
+// let blogId;
 
-function postDataToApi(callback) {
-  let blogContent = {
-	"title": "fud",
-	"content": "bbbbbbbbbb",
-	"topic": "frack"
-};
+function postDataToApi(newContent, callback) {
   $.ajax({
-  type: "POST",
-  url: url,
-  data: JSON.stringify(blogContent),
-  success: callback,
-  headers: {'Content-Type':'application/json'}
-  });
-}
-
-function getBlogPosts(callback) {
-  $.ajax({
-  type: "GET",
-  url: url,
-  success: callback,
-  headers: {'Content-Type':'application/json'}
-  });
-}
-
-function deleteBlogPosts(callback) {
-  $.ajax({
-    type: "DELETE",
+    type: "POST",
     url: url,
+    data: JSON.stringify(newContent),
     success: callback,
     headers: {'Content-Type':'application/json'}
   });
 }
 
-function updateBlogPosts(callback) {
-  let updatedContent = {
-    "title": "Whales That Read",
-    "content": "Is there really content?",
-    "topic": "Marine Literacy"
-  };
+function deleteBlogPosts(id, callback) {
+  $.ajax({
+      type: "DELETE",
+      url: url + id,
+      success: callback,
+      headers: {'Content-Type':'application/json'}
+  });
+}
+
+function updateBlogPost(blogId, newContent, callback) {
   $.ajax({
     type: "PUT",
+    url: url + blogId,
+    data: JSON.stringify(newContent),
+    success: callback,
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type':'application/json'}
+  });
+}
+
+function getBlogPosts(callback) {
+  $.ajax({
+    type: "GET",
     url: url,
-    data: JSON.stringify(updatedContent),
     success: callback,
     headers: {'Content-Type':'application/json'}
   });
 }
 
 function storeBlogPostData(data) {
-  // STORE.push(data);
   STORE = data;
   renderBlogPosts();
 }
@@ -64,29 +56,90 @@ function renderBlogPosts() {
   // in the html
   for (let i = 0; i < STORE.length; i++) {
     let title = STORE[i].title;
+    let content = STORE[i].content;
+    let topic = STORE[i].topic;
     let id = STORE[i]._id;
-    let liTag = `<li id=${id}>${title}</li>
-                 <button class="deletePost">Delete</button>
-                 <button class='updatePost'>Update</button>`
+    let liTag = `<li id=${id}>${title}<br>${content}<br>${topic}</li>
+                 <button class="deletePost" id="${id}">Delete</button>
+                 <button class="updatePost" id=${id}>Update</button>`
     $('.blogObj').append(liTag);
   }
-  console.log(STORE);
   watchUpdateClick();
+  watchDeleteClick();
+}
+
+function watchPostSubmit() {
+  $('.postForm').submit(function(event) {
+    event.preventDefault();
+    // let blogId = event.target.id;
+    // console.log('from watchSubmit', typeof blogId);
+    let title = $(".postTitle").val();
+    let content = $(".postContent").val();
+    let topic = $(".postTopic").val();
+    let newContent = {
+      title,
+      content,
+      topic
+    }
+    console.log(newContent);
+    postDataToApi(newContent, postCallback);
+  });
 }
 
 function watchUpdateClick() {
   $('.updatePost').on('click', function(event) {
     event.preventDefault();
-    updateBlogPosts(storeBlogPostData);
-    console.log("this button works");
+    let postId = event.target.id;
+    let form = document.querySelector('.updatedPostForm');
+    form.id = postId;
+    console.log('button works', postId);
+  });
+}
+
+function watchFormSubmit() {
+  $('.updatedPostForm').submit(function(event) {
+    event.preventDefault();
+    let blogId = event.target.id;
+    console.log('from watchSubmit', typeof blogId);
+    let title = $(".title").val();
+    let content = $(".content").val();
+    let topic = $(".topic").val();
+    let newContent = {
+      title,
+      content,
+      topic
+    }
+    updateBlogPost(blogId, newContent, putCallback);
+  });
+}
+
+function watchDeleteClick() {
+  $('.deletePost').on('click', function(event) {
+    event.preventDefault();
+    let id = event.target.id;
+    console.log(id);
+    deleteBlogPosts(id, deleteCallback);
+    $(this).closest('li').remove();
   })
 }
 
+function postCallback(response) {
+  location.reload();
+  console.log(response, 'post response');
+}
 
-// function findOutIfItWorks() {
-//   console.log('hey buddy');
-//   postDataToApi(showBlogPost);
-//   getDataFromApi(showBlogPost);
-// }
+function putCallback(response) {
+  location.reload();
+  console.log(response, 'I think this is working.');
+}
 
+function deleteCallback(response) {
+  location.reload();
+  console.log(response, 'Deleted');
+}
+
+$(watchPostSubmit);
+$(watchDeleteClick);
+$(watchUpdateClick);
+$(watchFormSubmit);
 $(getBlogPosts(storeBlogPostData));
