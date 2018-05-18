@@ -93,6 +93,7 @@ function watchUpdateClick() {
     let form = document.querySelector('.updatedPostForm');
     form.id = postId;
     console.log('button works', postId);
+    $('.updatedPostForm').removeClass('hidden');
   });
 }
 
@@ -109,6 +110,7 @@ function watchFormSubmit() {
       content,
       topic
     }
+    $('.updatedPostForm').addClass('hidden');
     updateBlogPost(blogId, newContent, putCallback);
   });
 }
