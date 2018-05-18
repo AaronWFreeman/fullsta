@@ -18,6 +18,7 @@ body, .blogApp {
   vertical-align: middle;
   top: 200px;
   border: 1px solid blue;
+  height: 540px;
 }
 
 li {
@@ -54,6 +55,11 @@ li {
   font-size: 30px;
   text-align: center;
   font-weight: bold;
+}
+
+.postButton, .updatePostButton {
+  width: 200px;
+  font-size: 18px;
 }
 
 .newPost {
