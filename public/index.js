@@ -59,7 +59,11 @@ function renderBlogPosts() {
     let content = STORE[i].content;
     let topic = STORE[i].topic;
     let id = STORE[i]._id;
-    let liTag = `<li id=${id}>${title}<br>${content}<br>${topic}</li>
+    let liTag = `<li id=${id}>
+                    <h1>${title}</h2>
+                    <p>${content}</p>
+                    <h4>Topic: ${topic}</h4>
+                 </li>
                  <button class="deletePost" id="${id}">Delete</button>
                  <button class="updatePost" id=${id}>Update</button>`
     $('.blogObj').append(liTag);

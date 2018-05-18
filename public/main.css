@@ -6,7 +6,11 @@
   border: 1px solid green;
 }
 
-.postContent {
+.postContent, .content {
   height: 40px;
   width: 300px;
+}
+
+ul {
+  list-style-type: none;
 }
