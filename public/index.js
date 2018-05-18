@@ -59,9 +59,16 @@ function renderBlogPosts() {
     let content = STORE[i].content;
     let topic = STORE[i].topic;
     let id = STORE[i]._id;
-    let liTag = `<li id=${id}>${title}<br>${content}<br>${topic}</li>
-                 <button class="deletePost" id="${id}">Delete</button>
-                 <button class="updatePost" id=${id}>Update</button>`
+    let liTag = ` <li id=${id} class='liContent'>
+                  <div class='title'>"${title}"</div><br>
+                  <div class='content'>${content}</div><br>
+                  <div class='topic'>Category: ${topic}</div><br>
+                  </li>
+                  <div class='deleteUpdateButtons'>
+                  <button class="deletePost" id="${id}">Delete</button>
+                  <button class="updatePost" id=${id}>Update</button>
+                  </div>
+                  <br><br><br><br><br> `
     $('.blogObj').append(liTag);
   }
   watchUpdateClick();
@@ -83,6 +90,7 @@ function watchPostSubmit() {
     }
     console.log(newContent);
     postDataToApi(newContent, postCallback);
+    $('.blogObj').removeClass('hidden');
   });
 }
 
@@ -93,10 +101,16 @@ function watchUpdateClick() {
     let form = document.querySelector('.updatedPostForm');
     form.id = postId;
     console.log('button works', postId);
+    watchFormSubmit();
+    $('.postForm').addClass('hidden');
+    $('.liContent').addClass('hidden');
+    $('.deleteUpdateButtons').addClass('hidden');
   });
+
 }
 
 function watchFormSubmit() {
+  $('.updatedPostForm').removeClass('hidden').addClass('updateYourForm');
   $('.updatedPostForm').submit(function(event) {
     event.preventDefault();
     let blogId = event.target.id;
@@ -138,8 +152,10 @@ function deleteCallback(response) {
   console.log(response, 'Deleted');
 }
 
+
+$('.postForm').removeClass('hidden');
 $(watchPostSubmit);
 $(watchDeleteClick);
 $(watchUpdateClick);
-$(watchFormSubmit);
+// $(watchFormSubmit);
 $(getBlogPosts(storeBlogPostData));
