@@ -1,6 +1,6 @@
 ## Fullstack Blog App
 
-# Demo
+Demo
 
 https://blooming-savannah-68104.herokuapp.com/
 
