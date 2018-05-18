@@ -2,8 +2,10 @@
   display:none
 }
 
-.postTitle, .postContent, .postTopic {
+.postTitle, .postContent, .postTopic, .title, .content, .topic {
   border: 1px solid green;
+  height: 30px;
+  width: 220px;
 }
 
 .postContent, .content {
@@ -13,4 +15,8 @@
 
 ul {
   list-style-type: none;
+}
+
+.postForm, .updatedPostForm {
+  text-align: center
 }
