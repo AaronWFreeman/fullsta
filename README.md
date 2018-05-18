@@ -4,7 +4,7 @@
 
 https://blooming-savannah-68104.herokuapp.com/
 
-This is my Blog App, which simply allows users to input any text of their choosing to Title, Topic and Content fieldsd. 
+This is my Blog App, which simply allows users to input any text of their choosing to Title, Topic and Content fields 
 
 ## Screenshots
 ![Main Page](https://user-images.githubusercontent.com/33733481/40255562-74be1eaa-5a9c-11e8-9c1e-70b6363cdd1d.png)
