@@ -2,53 +2,39 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content:"width=device-width, initial-scale=1">
+    <meta name="viewport" content:"width=device-width">
     <title>Blog to Rule All Blogs</title>
-    <link href="main.css" rel="stylesheet" type="text/css" />
-
   </head>
   <body>
-    <main role='main' class="blogApp"  aria-live="polite">
-      <div class="firstForm">
-        <form class="postForm" id="">
-          <h1>Title:</h1>
-          <br>
-          <input type="postText" class="postTitle" name="postTitle" value="" required><br><br>
-          <h1>Content:</h1>
-          <br>
-          <input type="postText" class="postContent" name="postContent" value="" required><br><br>
-          <h1>Topic:</h1>
-          <br>
-          <input type="postText" class="postTopic" name="postTopic" value="" required><br><br>
-          <br>
-          <button class="postButton" type="submit" name="postButton">
-            <h2>Create Post</h1>
-          </button>
-        </form>
-      </div>
+    <form class="postForm" id="">
+      Title:<br>
+      <input type="postText" class="postTitle" name="postTitle" value="" required><br><br>
+      Content:<br>
+      <input type="postText" class="postContent" name="postContent" value="" required><br><br>
+      Topic: <br>
+      <input type="postText" class="postTopic" name="postTopic" value="" required><br><br>
       <br>
-      <div class="updatePostForm">
-        <form class="updatedPostForm hidden" id="">
-          <h1>Title:</h1>
-          <br>
-          <input type="text" class="newTitle" name="Title" value="" ><br><br>
-          <h1>Content:</h1>
-          <br>
-          <input type="text" class="newContent" name="newContent" value="" ><br><br>
-          <h1>Topic:</h1>
-          <br>
-          <input type="text" class="newTopic" name="Topic" value="" ><br><br>
-          <br>
-          <button class="updatePostButton" type="submit" name="button">
-            <h2>Update Post</h2>
-          </button>
-        </form>
-      </div>
-      <!-- <div class ="renderBlogPost"> -->
-        <ul class ="blogObj">
-        </ul>
-      <!-- </div> -->
-    </main>
+      <button class="postButton" type="submit" name="postButton">
+        Create Post
+      </button>
+    </form>
+    <br>
+    <form class="updatedPostForm" id="thing">
+      Title:<br>
+      <input type="text" class="title" name="Title" value="" required><br><br>
+      Content:<br>
+      <input type="text" class="content" name="Content" value="" required><br><br>
+      Topic: <br>
+      <input type="text" class="topic" name="Topic" value="" required><br><br>
+      <br>
+      <button class="updatePostButton" type="submit" name="button">
+        Update Post
+      </button>
+    </form>
+    <div class ="renderBlogPost">
+      <ul class ="blogObj">
+      </ul>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="/index.js"></script>
   </body>
