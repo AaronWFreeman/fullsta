@@ -8,6 +8,10 @@
   width: 220px;
 }
 
+p, h2 {
+  padding: 20px;
+}
+
 .postContent, .content {
   height: 40px;
   width: 300px;
@@ -19,4 +23,19 @@ ul {
 
 .postForm, .updatedPostForm {
   text-align: center
+}
+
+.deletePost, .updatePost {
+  margin-left: 20px;
+  font-size: 15px;
+}
+
+.updatePostButton, .postButton {
+  font-size: 15px;
+}
+
+.updatePostButton:hover, .postButton:hover, .deletePost:hover, .updatePost:hover {
+  background-color: green;
+  color: white;
+  cursor: pointer;
 }

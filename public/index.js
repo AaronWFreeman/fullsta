@@ -1,7 +1,7 @@
 const url = 'http://localhost:8080/api/blogposts/';
 let STORE = [];
-// let blogId;
 
+// POST API
 function postDataToApi(newContent, callback) {
   $.ajax({
     type: "POST",
@@ -12,6 +12,7 @@ function postDataToApi(newContent, callback) {
   });
 }
 
+// DELETE API
 function deleteBlogPosts(id, callback) {
   $.ajax({
       type: "DELETE",
@@ -21,6 +22,7 @@ function deleteBlogPosts(id, callback) {
   });
 }
 
+// PUT API
 function updateBlogPost(blogId, newContent, callback) {
   $.ajax({
     type: "PUT",
@@ -33,6 +35,7 @@ function updateBlogPost(blogId, newContent, callback) {
   });
 }
 
+// GET API
 function getBlogPosts(callback) {
   $.ajax({
     type: "GET",
@@ -42,36 +45,36 @@ function getBlogPosts(callback) {
   });
 }
 
+// Initial Callback function to getBlogPosts(), which stores all posts in STORE
+// then calls renderBlogPosts() to render html to the DOM.
 function storeBlogPostData(data) {
   STORE = data;
   renderBlogPosts();
 }
 
-function showBlogPost(data) {
-  storeBlogPostData(data);
-}
-
 function renderBlogPosts() {
-  // need some jQuery to render stuff by appending <li> to your <ul>
+  // Appending <li> to the <ul>
   // in the html
   for (let i = 0; i < STORE.length; i++) {
     let title = STORE[i].title;
     let content = STORE[i].content;
     let topic = STORE[i].topic;
     let id = STORE[i]._id;
-    let liTag = `<li id=${id}>
-                    <h1>${title}</h2>
+    let liTag = `<li role="listitem" id=${id}>
+                    <h1>"${title}"</h1>
                     <p>${content}</p>
-                    <h4>Topic: ${topic}</h4>
+                    <h2>Topic: ${topic}</h2>
                  </li>
                  <button class="deletePost" id="${id}">Delete</button>
                  <button class="updatePost" id=${id}>Update</button>`
     $('.blogObj').append(liTag);
   }
+  // Call the next two button options functions
   watchUpdateClick();
   watchDeleteClick();
 }
 
+// Form which calls the POST API once required fields are submitted.
 function watchPostSubmit() {
   $('.postForm').submit(function(event) {
     event.preventDefault();
@@ -90,6 +93,8 @@ function watchPostSubmit() {
   });
 }
 
+// This is the first Update Click, which collects the ID from the Post & sends
+// it to the update post form //
 function watchUpdateClick() {
   $('.updatePost').on('click', function(event) {
     event.preventDefault();
@@ -102,6 +107,7 @@ function watchUpdateClick() {
   });
 }
 
+// Update Post form: Title, Content or Topic of previous Post //
 function watchFormSubmit() {
   $('.updatedPostForm').submit(function(event) {
     event.preventDefault();
@@ -121,6 +127,7 @@ function watchFormSubmit() {
   });
 }
 
+// Button which calls the DELETE API
 function watchDeleteClick() {
   $('.deletePost').on('click', function(event) {
     event.preventDefault();

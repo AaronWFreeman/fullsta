@@ -6,39 +6,43 @@
     <title>Blog to Rule All Blogs</title>
     <link href="main.css" rel="stylesheet" type="text/css" />
   </head>
-  <body>
-    <form class="postForm" id="">
-      <legend><h1>Create a Blog Post</h1></legend><br>
+  <body role="document">
+    <main role="main" aria-live="assertive">
+    <form role="form" class="postForm" id="">
+      <legend>
+        <h1>Create a Blog Post</h1>
+      </legend><br>
       <h2>Title:</h2><br>
-      <input type="postText" class="postTitle" name="postTitle" value="" required><br><br>
-     <h2>Content:</h2><br>
-      <textarea type="postText" class="postContent" name="postContent" value="" required></textarea><br><br>
+      <input type="text" role="textbox" class="postTitle" name="postTitle" value="" required aria-required="true"><br><br>
+      <h2>Content:</h2><br>
+      <textarea type="text" role="textbox" class="postContent" name="postContent" value="" required aria-required="true"></textarea><br><br>
       <h2>Topic:</h2> <br>
-      <input type="postText" class="postTopic" name="postTopic" value="" required><br><br>
+      <input type="text" role="textbox" class="postTopic" name="postTopic" value="" required aria-required="true"><br><br>
       <br>
-      <button class="postButton" type="submit" name="postButton">
-      <h2> Create Post</h2>
+      <button role="button" class="postButton" type="submit" name="postButton">
+      <h3> Create Post</h3>
       </button>
     </form>
     <br>
-      <form class="updatedPostForm hidden" id="">
+      <form role="form" class="updatedPostForm hidden" aria-hidden="true" id="">
         <legend><h1>Update Your Blog Post</h1></legend><br>
          <h2>Title:</h2><br>
-        <input type="text" class="title" name="Title" value="" required><br><br>
+        <input type="text" role="textbox" class="title" name="Title" value="" required><br><br>
          <h2>Content:</h2><br>
-        <textarea type="text" class="content" name="Content" value="" required></textarea><br><br>
+        <textarea type="text" role="textbox" class="content" name="Content" value="" required></textarea><br><br>
          <h2>Topic:</h2> <br>
-        <input type="text" class="topic" name="Topic" value="" required><br><br>
+        <input type="text" role="textbox" class="topic" name="Topic" value="" required><br><br>
          <br>
-        <button class="updatePostButton" type="submit" name="button">
-          <h2>Update Post</h2>
+        <button role="button" class="updatePostButton" type="submit" name="button">
+          <h3>Update Post</h3>
         </button>
      </form>
     <div class ="renderBlogPost">
       <ul class ="blogObj">
       </ul>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="/index.js"></script>
+  </main>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="/index.js"></script>
   </body>
 </html>
