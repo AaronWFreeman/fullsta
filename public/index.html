@@ -8,30 +8,32 @@
   </head>
   <body>
     <form class="postForm" id="">
-      Title:<br>
+      <legend><h1>Create a Blog Post</h1></legend><br>
+      <h2>Title:</h2><br>
       <input type="postText" class="postTitle" name="postTitle" value="" required><br><br>
-      Content:<br>
-      <input type="postText" class="postContent" name="postContent" value="" required><br><br>
-      Topic: <br>
+     <h2>Content:</h2><br>
+      <textarea type="postText" class="postContent" name="postContent" value="" required></textarea><br><br>
+      <h2>Topic:</h2> <br>
       <input type="postText" class="postTopic" name="postTopic" value="" required><br><br>
       <br>
       <button class="postButton" type="submit" name="postButton">
-        Create Post
+      <h2> Create Post</h2>
       </button>
     </form>
     <br>
       <form class="updatedPostForm hidden" id="">
-      Title:<br>
-      <input type="text" class="title" name="Title" value="" required><br><br>
-      Content:<br>
-      <input type="text" class="content" name="Content" value="" required><br><br>
-      Topic: <br>
-      <input type="text" class="topic" name="Topic" value="" required><br><br>
-      <br>
-      <button class="updatePostButton" type="submit" name="button">
-        Update Post
-      </button>
-    </form>
+        <legend><h1>Update Your Blog Post</h1></legend><br>
+         Title:<br>
+        <input type="text" class="title" name="Title" value="" required><br><br>
+         Content:<br>
+        <input type="text" class="content" name="Content" value="" required><br><br>
+         Topic: <br>
+        <input type="text" class="topic" name="Topic" value="" required><br><br>
+         <br>
+        <button class="updatePostButton" type="submit" name="button">
+          Update Post
+        </button>
+     </form>
     <div class ="renderBlogPost">
       <ul class ="blogObj">
       </ul>

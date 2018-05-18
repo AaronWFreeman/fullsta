@@ -94,6 +94,7 @@ function watchUpdateClick() {
     form.id = postId;
     console.log('button works', postId);
     $('.updatedPostForm').removeClass('hidden');
+    $('.postForm').addClass('hidden');
   });
 }
 
@@ -111,6 +112,7 @@ function watchFormSubmit() {
       topic
     }
     $('.updatedPostForm').addClass('hidden');
+    $('.postForm').removeClass('hidden');
     updateBlogPost(blogId, newContent, putCallback);
   });
 }
