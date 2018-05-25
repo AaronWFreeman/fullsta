@@ -10,9 +10,6 @@
 
 .title, .content, .topic, .newTitle, .newContent, .newTopic {
   border: 1px solid blue;
-  /* position: absolute;
-  display: inline-block;
-  float: left; */
 }
 
 p, h2 {
@@ -27,13 +24,21 @@ p, h2 {
 
 h1 {
   border: 1px solid red;
-  /* width: 50%; */
 }
 
 ul {
   list-style-type: none;
 }
 
+.postButton, .updatePostButton {
+  height: 73px;
+  width: 150px;
+  font-size: 17px;
+  text-align: center;
+  border: 1px solid red;
+  position: relative;
+  bottom: 850px;
+}
 
 .updatePostButton:hover, .postButton:hover, .deletePost:hover, .updatePost:hover {
   background-color: green;
@@ -41,13 +46,53 @@ ul {
   cursor: pointer;
 }
 
-@media only screen and (min-width: 760px) {
+@media only screen and (min-width: 320px) {
+
+  .postButton, .updatePostButton {
+    bottom: 10px;
+    padding: 5px;
+
+
+}
+
+@media only screen and (min-width: 360px) {
+
+  .postButton, .updatePostButton {
+    top: 190px;
+    padding: 5px;
+
+}
+
+@media only screen and (min-width: 375px) {
+
+  .postButton, .updatePostButton {
+    top: 30px;
+    padding: 5px;
+  }
+}
+
+@media only screen and (min-width: 411px) {
+
+  .postButton, .updatePostButton {
+    top: 240px;
+    padding: 5px;
+  }
+
+}
+
+@media only screen and (min-width: 768px) {
 
 .legend {
   padding: 5px;
-  text-align: center;
-  width: 45%;
-  margin: 0 auto;
+  width: 50%;
+  right: 5px;
+  font-size: 25px;
+}
+
+.legend2 {
+  padding: 5px;
+  width: 60%;
+  right: 5px;
   font-size: 25px;
 }
 
@@ -55,17 +100,22 @@ ul {
   border: 1px solid blue;
   padding: 5px;
   font-size: 30px;
-  width: 11%;
+  width: 9%;
+}
+
+.title, .newTitle {
+  position: absolute;
+  top: 180px;
 }
 
 .topic, .newTopic {
   position: absolute;
-  top: 250px;
+  top: 240px;
 }
 
 .content, .newContent {
   position: absolute;
-  top: 315px;
+  top: 300px;
   width: 12%;
 }
 
@@ -76,8 +126,8 @@ ul {
 
 .postForm, .updatedPostForm {
   border: 1px solid pink;
-  padding: 25px;
-  height: 1200px;
+  padding: 45px;
+  height: 900px;
 }
 
 .postTitle, .updatedTitle {
@@ -90,7 +140,7 @@ ul {
 .postTopic, .updatedTopic {
   position: absolute;
   left: 290px;
-  top: 275px;
+  top: 265px;
   width: 30%;
 }
 
@@ -98,88 +148,30 @@ ul {
   position: absolute;
   width: 70%;
   height: 400px;
-  top: 400px;
-}
-
-.postButton, .updatePost {
-  position: absolute;
-  bottom: 200px;
-  margin: 0 auto;
-  padding: 5px;
+  top: 390px;
   font-size: 20px;
 }
-/*
-  .postTitle, .updatedTitle {
-    position: absolute;
-    left: 620px;
-    margin-top: 10px;;
-    height: 50px;
-    width: 40%;
-    font-size: 25px;
-  }
 
-  .postTopic, .updatedTopic {
-    position: absolute;
-    bottom: 830px;
-    right: 570px;
-    height: 50px;
-    width: 35%;
-    font-size: 20px;
-  }
+.postButton, .updatePostButton {
+  top: 500px;
+  padding: 5px;
+}
 
-  .postContent, .updatedContent {
-    position: absolute;
-    bottom: 180px;
-    left: 380px;
-    width: 55%;
-    height: 500px;
-    padding-left: 10px;
-    text-align: left;
-    text-align: top;
-    font-size: 25px;
-  }
+}
 
-  .title, .newTitle {
-    position: absolute;
-    width: 10%;
-    text-align: left;
-  }
+@media only screen and (min-width: 1024px) {
 
-  .topic, .newTopic {
-    position: absolute;
-    bottom: 800px;
-    width: 10%;
-    text-align: left;
+  .postButton, .updatePostButton {
+    bottom: 200px;
+    padding: 5px;
   }
+}
 
-  .content, .newContent {
-    position: absolute;
-    width: 10%;
-    bottom: 700px;
-    text-align: left;
-    left: 375px;
+@media only screen and (min-width: 1080px) {
+
+  .postButton, .updatePostButton {
+    bottom: 230px;
+    padding: 5px;
   }
-
-  .postForm, .updatedPostForm {
-    border: 1px solid red;
-    border-radius: 10px;
-    width: 60%;
-    margin: 0 auto;
-    text-align: center;
-    height: 1000px;
-    padding: 20px;
-  }
-
-  .deletePost, .updatePost {
-    margin-left: 20px;
-    font-size: 15px;
-  }
-
-  .updatePostButton, .postButton {
-    font-size: 15px;
-    position: absolute;
-    top: 960px;
-    left: 800px;
-  } */
 
 }

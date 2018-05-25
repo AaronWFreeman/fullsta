@@ -60,7 +60,7 @@ function renderBlogPosts() {
     let content = STORE[i].content;
     let topic = STORE[i].topic;
     let id = STORE[i]._id;
-    let liTag = `<li role="listitem" id=${id}>
+    let liTag = `<li role="listItem" id=${id}>
                     <h1>"${title}"</h1>
                     <h2>Topic: ${topic}</h2>
                     <textarea type="text" role="textbox" class="renderedContent">${content}</textarea>
@@ -122,7 +122,7 @@ function watchFormSubmit() {
       topic
     }
     $('.updatedPostForm').addClass('hidden');
-    $('.postForm').removeClass('hidden');
+    // $('.postForm').removeClass('hidden');
     updateBlogPost(blogId, newContent, putCallback);
   });
 }
@@ -139,13 +139,16 @@ function watchDeleteClick() {
 }
 
 function postCallback(response) {
-  location.reload();
+  getBlogPosts(storeBlogPostData);
+  $('.postForm').addClass('hidden');
+  // location.reload();
   console.log(response, 'post response');
 }
 
 function putCallback(response) {
-  location.reload();
-  console.log(response, 'I think this is working.');
+  console.log(response, "Does this work?");
+  // location.reload();
+  // console.log(response, 'I think this is working.');
 }
 
 function deleteCallback(response) {
