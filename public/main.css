@@ -2,69 +2,17 @@
   display:none
 }
 
-.title, .content, .topic {
-  border: 1px solid blue;
-}
-
 .postTitle, .postContent, .postTopic, .updatedTitle, .updatedContent, .updatedTopic {
   border: 1px solid green;
-}
-
-.postTitle, .updatedTitle {
-  position: relative;
-  bottom: 80px;
-  right: 130px;
-  height: 50px;
-  width: 40%;
-  font-size: 25px;
-}
-
-.postTopic, .updatedTopic {
-  position: relative;
-  bottom: 655px;
-  right: 130px;
-  height: 50px;
-  width: 35%;
-  font-size: 20px;
-}
-
-.postContent, .updatedContent {
-  position: relative;
-  bottom: 20px;
-  width: 95%;
-  height: 300px;
-  padding-left: 10px;
-  text-align: left;
-  text-align: top;
-  font-size: 25px;
+  padding: 5px;
 }
 
 
 .title, .content, .topic, .newTitle, .newContent, .newTopic {
   border: 1px solid blue;
-}
-
-.title, .newTitle {
-  position: relative;
+  /* position: absolute;
   display: inline-block;
-  right: 400px;
-}
-
-.topic, .newTopic {
-  position: relative;
-  left: 20px;
-  width: 10%;
-  bottom: 555px;
-  text-align: left;
-}
-
-.content, .newContent {
-  position: relative;
-  top: 5px;
-  width: 50px;
-  text-align: left;
-  left: 15px;
-  width: 15%;
+  float: left; */
 }
 
 p, h2 {
@@ -79,32 +27,159 @@ p, h2 {
 
 h1 {
   border: 1px solid red;
-  width: 50%;
+  /* width: 50%; */
 }
 
 ul {
   list-style-type: none;
 }
 
-.postForm, .updatedPostForm {
-  border: 1px solid red;
-  border-radius: 10px;
-  width: 60%;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.deletePost, .updatePost {
-  margin-left: 20px;
-  font-size: 15px;
-}
-
-.updatePostButton, .postButton {
-  font-size: 15px;
-}
 
 .updatePostButton:hover, .postButton:hover, .deletePost:hover, .updatePost:hover {
   background-color: green;
   color: white;
   cursor: pointer;
+}
+
+@media only screen and (min-width: 760px) {
+
+.legend {
+  padding: 5px;
+  text-align: center;
+  width: 45%;
+  margin: 0 auto;
+  font-size: 25px;
+}
+
+.title, .content, .topic, .newTitle, .newContent, .newTopic {
+  border: 1px solid blue;
+  padding: 5px;
+  font-size: 30px;
+  width: 11%;
+}
+
+.topic, .newTopic {
+  position: absolute;
+  top: 250px;
+}
+
+.content, .newContent {
+  position: absolute;
+  top: 315px;
+  width: 12%;
+}
+
+.postTitle, .postTopic, .updatedTitle, .updatedTopic {
+  padding: 5px;
+  font-size: 30px;
+}
+
+.postForm, .updatedPostForm {
+  border: 1px solid pink;
+  padding: 25px;
+  height: 1200px;
+}
+
+.postTitle, .updatedTitle {
+  position: absolute;
+  left: 290px;
+  top: 205px;
+  width: 30%;
+}
+
+.postTopic, .updatedTopic {
+  position: absolute;
+  left: 290px;
+  top: 275px;
+  width: 30%;
+}
+
+.postContent, .updatedContent {
+  position: absolute;
+  width: 70%;
+  height: 400px;
+  top: 400px;
+}
+
+.postButton, .updatePost {
+  position: absolute;
+  bottom: 200px;
+  margin: 0 auto;
+  padding: 5px;
+  font-size: 20px;
+}
+/*
+  .postTitle, .updatedTitle {
+    position: absolute;
+    left: 620px;
+    margin-top: 10px;;
+    height: 50px;
+    width: 40%;
+    font-size: 25px;
+  }
+
+  .postTopic, .updatedTopic {
+    position: absolute;
+    bottom: 830px;
+    right: 570px;
+    height: 50px;
+    width: 35%;
+    font-size: 20px;
+  }
+
+  .postContent, .updatedContent {
+    position: absolute;
+    bottom: 180px;
+    left: 380px;
+    width: 55%;
+    height: 500px;
+    padding-left: 10px;
+    text-align: left;
+    text-align: top;
+    font-size: 25px;
+  }
+
+  .title, .newTitle {
+    position: absolute;
+    width: 10%;
+    text-align: left;
+  }
+
+  .topic, .newTopic {
+    position: absolute;
+    bottom: 800px;
+    width: 10%;
+    text-align: left;
+  }
+
+  .content, .newContent {
+    position: absolute;
+    width: 10%;
+    bottom: 700px;
+    text-align: left;
+    left: 375px;
+  }
+
+  .postForm, .updatedPostForm {
+    border: 1px solid red;
+    border-radius: 10px;
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    height: 1000px;
+    padding: 20px;
+  }
+
+  .deletePost, .updatePost {
+    margin-left: 20px;
+    font-size: 15px;
+  }
+
+  .updatePostButton, .postButton {
+    font-size: 15px;
+    position: absolute;
+    top: 960px;
+    left: 800px;
+  } */
+
 }
