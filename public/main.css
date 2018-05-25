@@ -2,19 +2,84 @@
   display:none
 }
 
-.postTitle, .postContent, .postTopic, .title, .content, .topic {
+.title, .content, .topic {
+  border: 1px solid blue;
+}
+
+.postTitle, .postContent, .postTopic, .updatedTitle, .updatedContent, .updatedTopic {
   border: 1px solid green;
-  height: 30px;
-  width: 220px;
+}
+
+.postTitle, .updatedTitle {
+  position: relative;
+  bottom: 80px;
+  right: 130px;
+  height: 50px;
+  width: 40%;
+  font-size: 25px;
+}
+
+.postTopic, .updatedTopic {
+  position: relative;
+  bottom: 655px;
+  right: 130px;
+  height: 50px;
+  width: 35%;
+  font-size: 20px;
+}
+
+.postContent, .updatedContent {
+  position: relative;
+  bottom: 20px;
+  width: 95%;
+  height: 300px;
+  padding-left: 10px;
+  text-align: left;
+  text-align: top;
+  font-size: 25px;
+}
+
+
+.title, .content, .topic, .newTitle, .newContent, .newTopic {
+  border: 1px solid blue;
+}
+
+.title, .newTitle {
+  position: relative;
+  display: inline-block;
+  right: 400px;
+}
+
+.topic, .newTopic {
+  position: relative;
+  left: 20px;
+  width: 10%;
+  bottom: 555px;
+  text-align: left;
+}
+
+.content, .newContent {
+  position: relative;
+  top: 5px;
+  width: 50px;
+  text-align: left;
+  left: 15px;
+  width: 15%;
 }
 
 p, h2 {
   padding: 20px;
+  border: 1px solid red;
 }
 
-.postContent, .content {
-  height: 40px;
-  width: 300px;
+.renderedContent {
+  border: 1px solid red;
+  width: 75%;
+}
+
+h1 {
+  border: 1px solid red;
+  width: 50%;
 }
 
 ul {
@@ -22,7 +87,11 @@ ul {
 }
 
 .postForm, .updatedPostForm {
-  text-align: center
+  border: 1px solid red;
+  border-radius: 10px;
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .deletePost, .updatePost {

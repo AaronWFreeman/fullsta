@@ -62,7 +62,7 @@ function renderBlogPosts() {
     let id = STORE[i]._id;
     let liTag = `<li role="listitem" id=${id}>
                     <h1>"${title}"</h1>
-                    <p>${content}</p>
+                    <textarea type="text" role="textbox" class="renderedContent">${content}</textarea>
                     <h2>Topic: ${topic}</h2>
                  </li>
                  <button class="deletePost" id="${id}">Delete</button>
