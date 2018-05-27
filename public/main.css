@@ -1,3 +1,11 @@
+body {
+  background: #C9283E;
+}
+
+* {
+  border: none;
+}
+
 .hidden {
   display:none
 }
@@ -15,28 +23,48 @@
 }
 
 .postForm, .updatedPostForm {
+  position: relative;
+  margin: 0 auto;
   border-radius: 20px;
   background: #F0433A;
-  /* border: 1px solid pink; */
+  width: 85%;
   padding: 45px;
-  height: 900px;
+  height: 1000px;
 }
 
-
-p, h2 {
-  padding: 20px;
-  border: 1px solid red;
-}
-
-.renderedContent {
-  border: 1px solid red;
-  width: 75%;
-}
-
-h1 {
+.legend, .legend2 {
   border-radius: 15px;
   background: #540032;
   color: white;
+  right: 5px;
+  font-size: 25px;
+}
+
+.legend {
+  width: 60%;
+}
+
+
+
+p, h1, h2 {
+  padding: 10px;
+  border-radius: 5px;
+  background: #540032;
+  color: white;
+}
+
+.renderedContent {
+  border-radius: 5px;
+  width: 85%;
+  height: 800px;
+  background: #2E112D;
+  color: white;
+  font-size: 18px;
+}
+
+.newPostTitle, .newPostTopic {
+  width: 45%;
+  font-size: 40px;
 }
 
 ul {
@@ -52,8 +80,17 @@ ul {
   background: #540032;
   color: white;
   position: relative;
-  bottom: 850px;
   border: none;
+  padding: 5px;
+}
+
+.deletePost, .updatePost {
+  border-radius: 15px;
+  width: 15%;
+  font-size: 35px;
+  padding: 7px;
+  background: #540032;
+  color: white;
 }
 
 .updatePostButton:hover, .postButton:hover, .deletePost:hover, .updatePost:hover {
@@ -65,25 +102,24 @@ ul {
 @media only screen and (min-width: 320px) {
 
   .postButton, .updatePostButton {
-    bottom: 10px;
-    padding: 5px;
-
-
+    position: relative;
+    top: 280px;
+  }
+  .legend2 {
+    width: 60%;
+  }
 }
 
-/* @media only screen and (min-width: 360px) {
+@media only screen and (min-width: 360px) {
 
   .postButton, .updatePostButton {
     top: 190px;
-    padding: 5px;
-
-} */
+}
 
 @media only screen and (min-width: 375px) {
 
   .postButton, .updatePostButton {
     top: 30px;
-    padding: 5px;
   }
 }
 
@@ -91,29 +127,14 @@ ul {
 
   .postButton, .updatePostButton {
     top: 240px;
-    padding: 5px;
   }
 
 }
 
 @media only screen and (min-width: 768px) {
 
-.legend {
-  padding: 5px;
-  width: 50%;
-  right: 5px;
-  font-size: 25px;
-}
-
-.legend2 {
-  padding: 5px;
-  width: 60%;
-  right: 5px;
-  font-size: 25px;
-}
 
 .title, .content, .topic, .newTitle, .newContent, .newTopic {
-  /* border: 1px solid blue; */
   padding: 5px;
   font-size: 30px;
   width: 9%;

@@ -54,15 +54,14 @@ function storeBlogPostData(data) {
 
 function renderBlogPosts() {
   // Appending <li> to the <ul>
-  $('.blogObj').empty();
   for (let i = 0; i < STORE.length; i++) {
     let title = STORE[i].title;
     let content = STORE[i].content;
     let topic = STORE[i].topic;
     let id = STORE[i]._id;
     let liTag = `<li role="listItem" id=${id}>
-                    <h1>"${title}"</h1>
-                    <h2>Topic: ${topic}</h2>
+                    <h1 class="newPostTitle">"${title}"</h1>
+                    <h2 class="newPostTopic">Topic: ${topic}</h2>
                     <textarea type="text" role="textbox" class="renderedContent">${content}</textarea>
                  </li>
                  <button class="deletePost" id="${id}">Delete</button>
@@ -145,6 +144,7 @@ function postCallback(response) {
 }
 
 function putCallback(response) {
+  $('.blogObj').empty();
   getBlogPosts(storeBlogPostData);
   console.log(response, "Does this work?");
 }
