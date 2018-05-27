@@ -7,11 +7,12 @@ https://blooming-savannah-68104.herokuapp.com/
 This is my Blog App, which simply allows users to input any text of their choosing to Title, Topic and Content fields. 
 
 ## Screenshots
-![Main Page](https://user-images.githubusercontent.com/33733481/40255562-74be1eaa-5a9c-11e8-9c1e-70b6363cdd1d.png)
-![Blog Post](https://user-images.githubusercontent.com/33733481/40255575-7fbcd8d2-5a9c-11e8-8289-cec6f215340e.png)
-![Update Post](https://user-images.githubusercontent.com/33733481/40255582-885d1402-5a9c-11e8-93cc-65eb84f5a25b.png)
-![Updated Post](https://user-images.githubusercontent.com/33733481/40255609-9f9487b8-5a9c-11e8-8360-195abb098d8e.png)
-![Delete Post](https://user-images.githubusercontent.com/33733481/40255623-a7e0954c-5a9c-11e8-94eb-fbde29254e36.png)
+![Main Page](https://user-images.githubusercontent.com/33733481/40591509-77af825c-61c7-11e8-8c6b-23d8889f927a.png)
+![Create Post](https://user-images.githubusercontent.com/33733481/40591512-8126fa2c-61c7-11e8-8f7c-958e7bf42919.png)
+![Post](https://user-images.githubusercontent.com/33733481/40591516-891e250c-61c7-11e8-8545-694eda548736.png)
+![Update Post](https://user-images.githubusercontent.com/33733481/40591523-98065e18-61c7-11e8-98f0-043922ea939b.png)
+![Updated Post](https://user-images.githubusercontent.com/33733481/40591525-a124cbba-61c7-11e8-9004-c72a327c6bab.png)
+![Delete Post](https://user-images.githubusercontent.com/33733481/40591526-ae94c1d8-61c7-11e8-8c40-538d5d3848db.png)
 
 ## Built With
 
