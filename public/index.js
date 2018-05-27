@@ -54,7 +54,7 @@ function storeBlogPostData(data) {
 
 function renderBlogPosts() {
   // Appending <li> to the <ul>
-  // in the html
+  $('.blogObj').empty();
   for (let i = 0; i < STORE.length; i++) {
     let title = STORE[i].title;
     let content = STORE[i].content;
@@ -113,17 +113,17 @@ function watchFormSubmit() {
     event.preventDefault();
     let blogId = event.target.id;
     console.log('from watchSubmit', typeof blogId);
-    let title = $(".title").val();
-    let content = $(".content").val();
-    let topic = $(".topic").val();
+    let title = $(".updatedTitle").val();
+    let content = $(".updatedContent").val();
+    let topic = $(".updatedTopic").val();
     let newContent = {
       title,
       content,
       topic
     }
-    $('.updatedPostForm').addClass('hidden');
     // $('.postForm').removeClass('hidden');
     updateBlogPost(blogId, newContent, putCallback);
+    $('.updatedPostForm').addClass('hidden');
   });
 }
 
@@ -141,14 +141,12 @@ function watchDeleteClick() {
 function postCallback(response) {
   getBlogPosts(storeBlogPostData);
   $('.postForm').addClass('hidden');
-  // location.reload();
   console.log(response, 'post response');
 }
 
 function putCallback(response) {
+  getBlogPosts(storeBlogPostData);
   console.log(response, "Does this work?");
-  // location.reload();
-  // console.log(response, 'I think this is working.');
 }
 
 function deleteCallback(response) {

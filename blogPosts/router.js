@@ -60,7 +60,7 @@ router.put('/:id', (req, res) => {
   });
 
   BlogPost
-    .findByIdAndUpdate(req.params.id, updatedDocument)
+    .findByIdAndUpdate(req.params.id, updatedDocument, {new: true})
     .then(updatedPost => {
       res.status(200).json(updatedPost);
     })

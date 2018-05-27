@@ -9,8 +9,19 @@
 
 
 .title, .content, .topic, .newTitle, .newContent, .newTopic {
-  border: 1px solid blue;
+  border-radius: 15px;
+  background: #540032;
+  color:  white;
 }
+
+.postForm, .updatedPostForm {
+  border-radius: 20px;
+  background: #F0433A;
+  /* border: 1px solid pink; */
+  padding: 45px;
+  height: 900px;
+}
+
 
 p, h2 {
   padding: 20px;
@@ -23,7 +34,9 @@ p, h2 {
 }
 
 h1 {
-  border: 1px solid red;
+  border-radius: 15px;
+  background: #540032;
+  color: white;
 }
 
 ul {
@@ -35,13 +48,16 @@ ul {
   width: 150px;
   font-size: 17px;
   text-align: center;
-  border: 1px solid red;
+  border-radius: 15px;
+  background: #540032;
+  color: white;
   position: relative;
   bottom: 850px;
+  border: none;
 }
 
 .updatePostButton:hover, .postButton:hover, .deletePost:hover, .updatePost:hover {
-  background-color: green;
+  background-color: #820333;
   color: white;
   cursor: pointer;
 }
@@ -55,13 +71,13 @@ ul {
 
 }
 
-@media only screen and (min-width: 360px) {
+/* @media only screen and (min-width: 360px) {
 
   .postButton, .updatePostButton {
     top: 190px;
     padding: 5px;
 
-}
+} */
 
 @media only screen and (min-width: 375px) {
 
@@ -97,7 +113,7 @@ ul {
 }
 
 .title, .content, .topic, .newTitle, .newContent, .newTopic {
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   padding: 5px;
   font-size: 30px;
   width: 9%;
@@ -120,14 +136,9 @@ ul {
 }
 
 .postTitle, .postTopic, .updatedTitle, .updatedTopic {
+  border-radius: 5px;
   padding: 5px;
   font-size: 30px;
-}
-
-.postForm, .updatedPostForm {
-  border: 1px solid pink;
-  padding: 45px;
-  height: 900px;
 }
 
 .postTitle, .updatedTitle {
