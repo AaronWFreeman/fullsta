@@ -103,6 +103,7 @@ function watchUpdateClick() {
     console.log('button works', postId);
     $('.updatedPostForm').removeClass('hidden');
     $('.postForm').addClass('hidden');
+    $(window).scrollTop(0);
   });
 }
 

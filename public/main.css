@@ -24,7 +24,7 @@ body {
 
 .postForm, .updatedPostForm {
   position: relative;
-  margin: 0 auto;
+  left: 40px;
   border-radius: 20px;
   background: #F0433A;
   width: 85%;
