@@ -75,7 +75,7 @@ function renderBlogPosts() {
 
 // Form which calls the POST API once required fields are submitted.
 function watchPostSubmit() {
-  $('.postForm').submit(function(event) {
+  $('.postButton').on('click', function(event) {
     event.preventDefault();
     // let blogId = event.target.id;
     // console.log('from watchSubmit', typeof blogId);
