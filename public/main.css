@@ -82,6 +82,7 @@ ul {
   position: relative;
   border: none;
   padding: 5px;
+  cursor: pointer;
 }
 
 .deletePost, .updatePost {
